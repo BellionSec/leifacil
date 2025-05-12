@@ -23,6 +23,10 @@ export function Navbar() {
     ...(isSignedIn
       ? [
           { name: "Dashboard", href: "/dashboard" },
+          { name: "Resumo de Documentos", href: "/resumo-documentos" },
+          { name: "Explicador Jurídico", href: "/explicador-juridico" },
+          { name: "Calculadora Jurídica", href: "/calculadora-juridica" },
+          { name: "Checklist Jurídico", href: "/checklist-juridico" },
           { name: "Perfil", href: "/perfil" },
         ]
       : []),
