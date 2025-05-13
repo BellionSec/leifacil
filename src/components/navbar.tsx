@@ -56,7 +56,7 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-
+        
         <div className="hidden md:flex items-center gap-4">
           <ModeToggle />
           {isSignedIn ? (
@@ -64,10 +64,10 @@ export function Navbar() {
           ) : (
             <div className="flex items-center gap-4">
               <Button variant="ghost" asChild>
-                <Link href="/sign-in">Entrar</Link>
+                <Link href="/entrar">Entrar</Link>
               </Button>
               <Button asChild>
-                <Link href="/sign-up">Cadastrar</Link>
+                <Link href="/cadastro">Cadastrar</Link>
               </Button>
             </div>
           )}
@@ -104,12 +104,12 @@ export function Navbar() {
             {!isSignedIn && (
               <div className="flex flex-col gap-2 pt-2 border-t">
                 <Button variant="ghost" asChild>
-                  <Link href="/sign-in" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/entrar" onClick={() => setIsMenuOpen(false)}>
                     Entrar
                   </Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/sign-up" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/cadastro" onClick={() => setIsMenuOpen(false)}>
                     Cadastrar
                   </Link>
                 </Button>
