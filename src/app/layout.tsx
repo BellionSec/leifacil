@@ -4,8 +4,9 @@ import { ptBR } from "@clerk/localizations"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { neobrutalism } from '@clerk/themes'
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "next-themes"
 import { Footer } from "@/components/footer"
+import ConditionalFooter from '@/components/ConditionalFooter';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
@@ -31,14 +32,12 @@ export default function RootLayout({
       <html lang="pt-BR" suppressHydrationWarning>
      
         <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-          
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-            <div className="flex min-h-screen flex-col">
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
+         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <div className="flex min-h-screen flex-col">
+          <main className="flex-1">{children}</main>
+           <ConditionalFooter footer={<Footer />} />
+          </div>
           </ThemeProvider>
-       
         </body> 
       
       </html>
