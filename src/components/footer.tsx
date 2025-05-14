@@ -19,10 +19,10 @@ export function Footer() {
                 Planos
               </Link>
               <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Dashboard
+                Assistente
               </Link>
               <Link href="/perfil" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Perfil
+                Meu Plano
               </Link>
             </nav>
           </div>

@@ -18,18 +18,20 @@ export function Navbar() {
   }
 
   const navItems = [
-    { name: "Início", href: "/" },
-    { name: "Planos", href: "/planos" },
+    // Itens e funcionalidades acessíveis apenas para usuários autenticados
     ...(isSignedIn
       ? [
-          { name: "Dashboard", href: "/dashboard" },
-          { name: "Resumo de Documentos", href: "/resumo-documentos" },
-          { name: "Explicador Jurídico", href: "/explicador-juridico" },
-          { name: "Calculadora Jurídica", href: "/calculadora-juridica" },
-          { name: "Checklist Jurídico", href: "/checklist-juridico" },
-          { name: "Perfil", href: "/perfil" },
+          { name: "Assistente", href: "/dashboard" },
+          { name: "Resumo inteligente", href: "/resumo-documentos" },
+          { name: "Calculadora", href: "/calculadora-juridica" },
+          { name: "Checklist Legal", href: "/checklist-juridico" },
+          { name: "Meu Plano", href: "/perfil" },
         ]
-      : []),
+        // Itens acessíveis para todos os usuários, não sendo visíveis para auententicados
+      : [
+          { name: "Início", href: "/" },
+          { name: "Planos", href: "/planos" },
+        ]),
   ]
 
   return (

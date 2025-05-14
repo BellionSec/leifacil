@@ -118,3 +118,28 @@
     opacity: 1;
   }
 }
+
+@layer components {
+  .navbar-container {
+    @apply container mx-auto;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+  }
+
+  .navbar-logo {
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .navbar-center {
+    @apply flex justify-center items-center;
+    min-width: 0;
+  }
+
+  .navbar-controls {
+    width: 220px;
+    flex-shrink: 0;
+    justify-self: end;
+  }
+}
