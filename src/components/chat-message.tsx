@@ -1,4 +1,5 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
 interface ChatMessageProps {
@@ -7,10 +8,22 @@ interface ChatMessageProps {
     content: string
   }
   isLoading?: boolean
+  userImage?: string | null
+  userName?: string | null
 }
 
-export function ChatMessage({ message, isLoading }: ChatMessageProps) {
+
+export function ChatMessage({ message, isLoading, userImage, userName }: ChatMessageProps) {
   const isUser = message.role === "user"
+
+  
+  // Obter as iniciais do nome do usuário para o fallback do avatar
+  const getUserInitials = () => {
+    if (!userName) return "U"
+    const names = userName.split(" ")
+    if (names.length === 1) return names[0].charAt(0)
+    return `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`
+  }
 
   return (
     <div className={cn("flex w-full gap-3 p-4", isUser ? "justify-end" : "justify-start", isLoading && "opacity-70")}>
@@ -29,7 +42,11 @@ export function ChatMessage({ message, isLoading }: ChatMessageProps) {
       </div>
       {isUser && (
         <Avatar>
-          <AvatarFallback>U</AvatarFallback>
+         {userImage ? (
+            <AvatarImage src={userImage || "/placeholder.svg"} alt={userName || "Usuário"} />
+          ) : (
+            <AvatarFallback>{getUserInitials()}</AvatarFallback>
+          )}
         </Avatar>
       )}
     </div>

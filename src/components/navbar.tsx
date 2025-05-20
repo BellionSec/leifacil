@@ -23,8 +23,8 @@ export function Navbar() {
       ? [
           { name: "Assistente", href: "/dashboard" },
           { name: "Resumo inteligente", href: "/resumo-documentos" },
+          {name: "Buscador de Jurisprudências", href: "/buscador-jurisprudencias"},
           { name: "Calculadora", href: "/calculadora-juridica" },
-          { name: "Checklist Legal", href: "/checklist-juridico" },
           { name: "Meu Plano", href: "/perfil" },
         ]
         // Itens acessíveis para todos os usuários, não sendo visíveis para auententicados

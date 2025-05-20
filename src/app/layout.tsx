@@ -3,7 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { ptBR } from "@clerk/localizations"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
-import { neobrutalism } from '@clerk/themes'
+import { dark, neobrutalism, shadesOfPurple } from '@clerk/themes'
 import { ThemeProvider } from "next-themes"
 import { Footer } from "@/components/footer"
 import ConditionalFooter from '@/components/ConditionalFooter';
@@ -26,7 +26,10 @@ export default function RootLayout({
   
      <ClerkProvider localization={ptBR}
      appearance={{
-      baseTheme: neobrutalism}}
+      baseTheme: [neobrutalism],
+       variables: { colorPrimary: 'blue',
+        }}   
+    }
     >
       
       <html lang="pt-BR" suppressHydrationWarning>

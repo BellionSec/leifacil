@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useUser } from "@clerk/nextjs"
 import { Navbar } from "@/components/navbar"
 import { ChatMessage } from "@/components/chat-message"
 import { ChatInput } from "@/components/chat-input"
@@ -22,6 +23,7 @@ const initialMessages: Message[] = [
 ]
 
 export default function DashboardPage() {
+  const { user, isLoaded } = useUser()
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -71,11 +73,16 @@ export default function DashboardPage() {
             </div>
             <div className="h-[60vh] overflow-y-auto bg-background/50">
               {messages.map((message, index) => (
-                <ChatMessage key={index} message={message} />
+                 <ChatMessage
+                  key={index}
+                  message={message}
+                  userImage={isLoaded ? user?.imageUrl : null}
+                  userName={isLoaded ? user?.fullName : null}
+                />
               ))}
               {isLoading && <ChatLoading />}
             </div>
-            <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
+            <ChatInput onSendMessageAction={handleSendMessage} isLoading={isLoading} />
           </div>
         </div>
       </div>
